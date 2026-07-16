@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MitiVPN — Free access is coming</title>
-<meta name="description" content="MitiVPN is launching soon. A VPN built for open, unrestricted access to information.">
+<meta name="description" content="MitiVPN is launching soon. A VPN built for open, unrestricted access to information — fast, private, and without borders.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -27,9 +27,26 @@
       </span>
       MitiVPN
     </div>
-    <div class="nav__status">
-      <span class="dot" aria-hidden="true"></span>
-      Preparing launch
+
+    <div class="nav__right">
+      <div class="nav__status">
+        <span class="dot" aria-hidden="true"></span>
+        Preparing launch
+      </div>
+
+      <div class="menu">
+        <button class="menu__trigger" id="menu-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="menu-panel" aria-label="Open menu">
+          <span class="menu__icon" aria-hidden="true">
+            <span></span><span></span><span></span>
+          </span>
+        </button>
+        <nav class="menu__panel" id="menu-panel" role="menu" aria-hidden="true">
+          <a href="#about" role="menuitem">About</a>
+          <a href="#faq" role="menuitem">FAQ</a>
+          <a href="#contact" role="menuitem">Contact</a>
+          <a href="mailto:mitivpn@gmail.com" role="menuitem">Email us</a>
+        </nav>
+      </div>
     </div>
   </header>
 
@@ -42,18 +59,29 @@
       <span class="hero__title-accent">coming down.</span>
     </h1>
 
-    <div class="signal" role="img" aria-label="Signal indicator transitioning from blocked to connected">
-      <svg class="signal__svg" viewBox="0 0 200 160" width="200" height="160">
-        <circle class="signal__dot" cx="100" cy="128" r="7"/>
-        <path class="signal__arc signal__arc--1" d="M78 108 Q100 88 122 108" />
-        <path class="signal__arc signal__arc--2" d="M60 84 Q100 48 140 84" />
-        <path class="signal__arc signal__arc--3" d="M40 58 Q100 4 160 58" />
-        <line class="signal__slash" x1="45" y1="35" x2="155" y2="140" />
+    <!-- Signal / WiFi mark: blocked -> open, with speed streaks -->
+    <div class="signal" role="img" aria-label="Signal indicator transitioning from blocked to a fast, open connection">
+      <svg class="signal__svg" viewBox="0 0 220 170" width="220" height="170">
+
+        <!-- speed streaks, sweep in behind the signal once connected -->
+        <g class="signal__speed">
+          <line class="speed__line speed__line--1" x1="14" y1="150" x2="70" y2="150"/>
+          <line class="speed__line speed__line--2" x1="4" y1="162" x2="46" y2="162"/>
+          <line class="speed__line speed__line--3" x1="150" y1="150" x2="206" y2="150"/>
+          <line class="speed__line speed__line--4" x1="174" y1="162" x2="216" y2="162"/>
+        </g>
+
+        <circle class="signal__dot" cx="110" cy="128" r="7"/>
+        <path class="signal__arc signal__arc--1" d="M86 108 Q110 88 134 108" />
+        <path class="signal__arc signal__arc--2" d="M66 84 Q110 46 154 84" />
+        <path class="signal__arc signal__arc--3" d="M44 58 Q110 2 176 58" />
+        <line class="signal__slash" x1="49" y1="33" x2="171" y2="142" />
       </svg>
     </div>
 
     <p class="hero__sub">
       We will be here very soon — a VPN built quietly, for the moment the connection matters most.
+      Full speed. No borders. No log.
     </p>
 
     <form class="notify" id="notify-form">
@@ -75,6 +103,12 @@
       In too many places, a news site, a message, a search result depends on permission it should never have needed.
       MitiVPN exists to remove that permission requirement — routing your connection past filters, throttling,
       and surveillance, so the internet you reach is the same one everyone else does.
+    </p>
+    <p class="freedom__body freedom__body--secondary">
+      Access to information is a right, not a privilege granted by geography. A government, an ISP, or a firewall
+      shouldn't decide what a person is allowed to read, say, or watch. That belief is the whole reason MitiVPN
+      is being built: a network with no borders, where a connection is judged on nothing but whether you asked for it.
+      Free, unfiltered, and yours.
     </p>
 
     <div class="pillars">
@@ -98,6 +132,13 @@
         </span>
         <h3>Fast enough to forget it's on</h3>
         <p>Encryption that doesn't cost you the connection — video calls and streams stay usable.</p>
+      </div>
+      <div class="pillar">
+        <span class="pillar__glyph" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none"><path d="M12 2v6M12 16v6M4.9 4.9l4.2 4.2M14.9 14.9l4.2 4.2M2 12h6M16 12h6M4.9 19.1l4.2-4.2M14.9 9.1l4.2-4.2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </span>
+        <h3>Borderless by default</h3>
+        <p>One network, reachable from anywhere — access isn't a feature you unlock by country.</p>
       </div>
     </div>
   </section>

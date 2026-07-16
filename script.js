@@ -114,6 +114,45 @@
 })();
 
 // ============================================
+// Corner menu (top-right dropdown)
+// ============================================
+(function cornerMenu() {
+  const trigger = document.getElementById('menu-trigger');
+  const panel = document.getElementById('menu-panel');
+  if (!trigger || !panel) return;
+
+  function openMenu() {
+    trigger.setAttribute('aria-expanded', 'true');
+    panel.setAttribute('aria-hidden', 'false');
+    panel.setAttribute('data-open', 'true');
+  }
+
+  function closeMenu() {
+    trigger.setAttribute('aria-expanded', 'false');
+    panel.setAttribute('aria-hidden', 'true');
+    panel.removeAttribute('data-open');
+  }
+
+  trigger.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const isOpen = trigger.getAttribute('aria-expanded') === 'true';
+    isOpen ? closeMenu() : openMenu();
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!panel.contains(e.target) && e.target !== trigger) closeMenu();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeMenu();
+  });
+
+  panel.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', closeMenu);
+  });
+})();
+
+// ============================================
 // Notify form (client-side only — visual confirmation)
 // ============================================
 (function notifyForm() {
