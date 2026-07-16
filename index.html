@@ -42,6 +42,9 @@
         </button>
         <nav class="menu__panel" id="menu-panel" role="menu" aria-hidden="true">
           <a href="#about" role="menuitem">About</a>
+          <a href="#how-it-works" role="menuitem">Technology</a>
+          <a href="#coverage" role="menuitem">Coverage</a>
+          <a href="#team" role="menuitem">Team</a>
           <a href="#faq" role="menuitem">FAQ</a>
           <a href="#contact" role="menuitem">Contact</a>
           <a href="mailto:mitivpn@gmail.com" role="menuitem">Email us</a>
@@ -90,6 +93,28 @@
       <button type="submit">Notify me</button>
     </form>
     <p class="notify__hint" id="notify-hint">We'll only email you once — when we launch.</p>
+
+    <div class="countdown" id="countdown" role="timer" aria-label="Countdown to launch">
+      <div class="countdown__unit">
+        <span class="countdown__num" id="cd-days">00</span>
+        <span class="countdown__label">Days</span>
+      </div>
+      <span class="countdown__sep" aria-hidden="true">:</span>
+      <div class="countdown__unit">
+        <span class="countdown__num" id="cd-hours">00</span>
+        <span class="countdown__label">Hours</span>
+      </div>
+      <span class="countdown__sep" aria-hidden="true">:</span>
+      <div class="countdown__unit">
+        <span class="countdown__num" id="cd-mins">00</span>
+        <span class="countdown__label">Mins</span>
+      </div>
+      <span class="countdown__sep" aria-hidden="true">:</span>
+      <div class="countdown__unit">
+        <span class="countdown__num" id="cd-secs">00</span>
+        <span class="countdown__label">Secs</span>
+      </div>
+    </div>
   </main>
 
   <!-- ============ FREEDOM SECTION ============ -->
@@ -98,18 +123,47 @@
       <span class="freedom__index">§1</span>
       Why it matters
     </div>
-    <h2 class="freedom__title">Information doesn't belong to borders.</h2>
-    <p class="freedom__body">
-      In too many places, a news site, a message, a search result depends on permission it should never have needed.
-      MitiVPN exists to remove that permission requirement — routing your connection past filters, throttling,
-      and surveillance, so the internet you reach is the same one everyone else does.
-    </p>
-    <p class="freedom__body freedom__body--secondary">
-      Access to information is a right, not a privilege granted by geography. A government, an ISP, or a firewall
-      shouldn't decide what a person is allowed to read, say, or watch. That belief is the whole reason MitiVPN
-      is being built: a network with no borders, where a connection is judged on nothing but whether you asked for it.
-      Free, unfiltered, and yours.
-    </p>
+
+    <div class="freedom__intro">
+      <div>
+        <h2 class="freedom__title">Information doesn't belong to borders.</h2>
+        <p class="freedom__body">
+          In too many places, a news site, a message, a search result depends on permission it should never have needed.
+          MitiVPN exists to remove that permission requirement — routing your connection past filters, throttling,
+          and surveillance, so the internet you reach is the same one everyone else does.
+        </p>
+        <p class="freedom__body freedom__body--secondary">
+          Access to information is a right, not a privilege granted by geography. A government, an ISP, or a firewall
+          shouldn't decide what a person is allowed to read, say, or watch. That belief is the whole reason MitiVPN
+          is being built: a network with no borders, where a connection is judged on nothing but whether you asked for it.
+          Free, unfiltered, and yours.
+        </p>
+        <p class="freedom__body freedom__body--secondary">
+          We're not building another VPN that trades your traffic for someone else's ledger. Every architectural decision —
+          from where servers sit to how sessions are handled — is made against a single question: does this make it easier
+          to know something about the person using it? If the answer is yes, it doesn't ship.
+        </p>
+      </div>
+
+      <div class="freedom__stats">
+        <div class="freedom__stat">
+          <div class="freedom__stat-num">0</div>
+          <div class="freedom__stat-label">Bytes of traffic logged, ever</div>
+        </div>
+        <div class="freedom__stat">
+          <div class="freedom__stat-num">40+</div>
+          <div class="freedom__stat-label">Countries in the launch network</div>
+        </div>
+        <div class="freedom__stat">
+          <div class="freedom__stat-num">256</div>
+          <div class="freedom__stat-label">-bit encryption on every hop</div>
+        </div>
+        <div class="freedom__stat">
+          <div class="freedom__stat-num">5</div>
+          <div class="freedom__stat-label">Platforms at day one</div>
+        </div>
+      </div>
+    </div>
 
     <div class="pillars">
       <div class="pillar">
@@ -143,10 +197,184 @@
     </div>
   </section>
 
+  <!-- ============ HOW IT WORKS ============ -->
+  <section class="howitworks" id="how-it-works">
+    <div class="freedom__label">
+      <span class="freedom__index">§2</span>
+      The technology
+    </div>
+    <h2 class="freedom__title">How a connection actually gets through.</h2>
+    <p class="freedom__body">
+      Three layers stand between your device and the open internet. Each one is doing a different job — together
+      they're what makes MitiVPN work in places where ordinary VPNs get detected and blocked within minutes.
+    </p>
+
+    <div class="howitworks__steps">
+      <div class="step">
+        <div class="step__num">01</div>
+        <h3>Obfuscated handshake</h3>
+        <p>Your connection is disguised as ordinary encrypted web traffic before it ever leaves your device, so deep packet inspection has nothing distinctive to flag.</p>
+        <span class="step__tag">Anti-DPI</span>
+      </div>
+      <div class="step">
+        <div class="step__num">02</div>
+        <h3>Multi-hop routing</h3>
+        <p>Traffic passes through more than one independent relay, so no single server — or the network operator watching it — ever sees both who you are and what you're requesting.</p>
+        <span class="step__tag">WireGuard-based</span>
+      </div>
+      <div class="step">
+        <div class="step__num">03</div>
+        <h3>Ephemeral sessions</h3>
+        <p>Session keys exist only in memory and are discarded the moment a connection closes. There's nothing on disk to seize, subpoena, or leak later.</p>
+        <span class="step__tag">RAM-only</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ COVERAGE / SERVER MAP ============ -->
+  <section class="coverage" id="coverage">
+    <div class="freedom__label">
+      <span class="freedom__index">§3</span>
+      Coverage
+    </div>
+    <h2 class="freedom__title">A network built where it's needed most.</h2>
+    <p class="freedom__body">
+      Server placement isn't just about speed — it's chosen to give people in restricted regions a nearby, reliable
+      exit point. The map below reflects the regions planned for the launch network.
+    </p>
+
+    <div class="coverage__layout">
+      <div class="coverage__map">
+        <svg viewBox="0 0 500 300" preserveAspectRatio="xMidYMid meet" role="img" aria-label="World map showing planned MitiVPN server regions">
+          <!-- simplified continent silhouettes -->
+          <path class="coverage__land" d="M40 90 L90 70 130 85 150 75 190 90 180 120 150 130 120 150 90 140 60 150 40 130 Z"/>
+          <path class="coverage__land" d="M110 160 L140 155 155 190 145 230 120 240 100 210 105 175 Z"/>
+          <path class="coverage__land" d="M230 60 L270 50 310 65 320 90 290 100 260 95 235 85 Z"/>
+          <path class="coverage__land" d="M240 110 L275 105 300 140 290 190 260 210 235 180 230 140 Z"/>
+          <path class="coverage__land" d="M330 70 L400 55 460 75 450 105 400 115 350 105 Z"/>
+          <path class="coverage__land" d="M340 130 L400 125 430 160 410 190 360 185 335 160 Z"/>
+          <path class="coverage__land" d="M370 210 L410 205 425 230 400 245 375 235 Z"/>
+
+          <!-- connection links -->
+          <line class="coverage__link" x1="110" y1="100" x2="270" y2="75"/>
+          <line class="coverage__link" x1="270" y1="75" x2="390" y2="85"/>
+          <line class="coverage__link" x1="270" y1="75" x2="265" y2="150"/>
+          <line class="coverage__link" x1="390" y1="85" x2="380" y2="165"/>
+          <line class="coverage__link" x1="130" y1="190" x2="265" y2="150"/>
+
+          <!-- server nodes with pulse rings -->
+          <g>
+            <circle class="coverage__ring" cx="110" cy="100" r="6"/>
+            <circle class="coverage__node" cx="110" cy="100" r="4"/>
+          </g>
+          <g>
+            <circle class="coverage__ring" cx="270" cy="75" r="6" style="animation-delay:0.4s"/>
+            <circle class="coverage__node" cx="270" cy="75" r="4"/>
+          </g>
+          <g>
+            <circle class="coverage__ring" cx="390" cy="85" r="6" style="animation-delay:0.8s"/>
+            <circle class="coverage__node" cx="390" cy="85" r="4"/>
+          </g>
+          <g>
+            <circle class="coverage__ring" cx="265" cy="150" r="6" style="animation-delay:1.2s"/>
+            <circle class="coverage__node" cx="265" cy="150" r="4"/>
+          </g>
+          <g>
+            <circle class="coverage__ring" cx="380" cy="165" r="6" style="animation-delay:1.6s"/>
+            <circle class="coverage__node" cx="380" cy="165" r="4"/>
+          </g>
+          <g>
+            <circle class="coverage__ring" cx="130" cy="190" r="6" style="animation-delay:2s"/>
+            <circle class="coverage__node" cx="130" cy="190" r="4"/>
+          </g>
+        </svg>
+      </div>
+
+      <div class="coverage__list">
+        <div class="coverage__region">
+          <div>
+            <div class="coverage__region-name">Europe</div>
+            <div class="coverage__region-sub">Frankfurt, Amsterdam, Stockholm, Zurich</div>
+          </div>
+          <span class="coverage__region-count">14 nodes</span>
+        </div>
+        <div class="coverage__region">
+          <div>
+            <div class="coverage__region-name">Middle East &amp; Central Asia</div>
+            <div class="coverage__region-sub">Istanbul, Dubai, Yerevan</div>
+          </div>
+          <span class="coverage__region-count">9 nodes</span>
+        </div>
+        <div class="coverage__region">
+          <div>
+            <div class="coverage__region-name">East &amp; South Asia</div>
+            <div class="coverage__region-sub">Singapore, Tokyo, Mumbai</div>
+          </div>
+          <span class="coverage__region-count">11 nodes</span>
+        </div>
+        <div class="coverage__region">
+          <div>
+            <div class="coverage__region-name">North America</div>
+            <div class="coverage__region-sub">New York, Toronto, Los Angeles</div>
+          </div>
+          <span class="coverage__region-count">8 nodes</span>
+        </div>
+        <div class="coverage__region">
+          <div>
+            <div class="coverage__region-name">Africa &amp; South America</div>
+            <div class="coverage__region-sub">Cape Town, São Paulo</div>
+          </div>
+          <span class="coverage__region-count">6 nodes</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TEAM ============ -->
+  <section class="team" id="team">
+    <div class="freedom__label">
+      <span class="freedom__index">§4</span>
+      Who's building it
+    </div>
+    <h2 class="freedom__title">A small team, building in the open.</h2>
+    <p class="freedom__body">
+      No office, no investors telling us to add tracking "just for analytics." MitiVPN is built by a handful of
+      engineers who've worked on network infrastructure and censorship-resistant tooling before — this time, for
+      everyone rather than one employer.
+    </p>
+
+    <div class="team__grid">
+      <div class="team__card">
+        <div class="team__avatar">R.K.</div>
+        <div class="team__name">R. Kade</div>
+        <div class="team__role">Network architecture</div>
+        <p class="team__bio">Previously built relay infrastructure for censorship-resistant messaging tools.</p>
+      </div>
+      <div class="team__card">
+        <div class="team__avatar">S.M.</div>
+        <div class="team__name">S. Marín</div>
+        <div class="team__role">Protocol &amp; cryptography</div>
+        <p class="team__bio">Focused on obfuscation protocols that survive deep packet inspection at scale.</p>
+      </div>
+      <div class="team__card">
+        <div class="team__avatar">L.O.</div>
+        <div class="team__name">L. Oyelaran</div>
+        <div class="team__role">Client engineering</div>
+        <p class="team__bio">Building the desktop and mobile apps to be fast, boring, and hard to misuse.</p>
+      </div>
+      <div class="team__card">
+        <div class="team__avatar">A.T.</div>
+        <div class="team__name">A. Tran</div>
+        <div class="team__role">Trust &amp; operations</div>
+        <p class="team__bio">Handles server relationships and the no-log policy's day-to-day enforcement.</p>
+      </div>
+    </div>
+  </section>
+
   <!-- ============ FAQ ============ -->
   <section class="faq" id="faq">
     <div class="freedom__label">
-      <span class="freedom__index">§2</span>
+      <span class="freedom__index">§5</span>
       Questions
     </div>
     <h2 class="freedom__title">A few things people ask early.</h2>

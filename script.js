@@ -153,6 +153,45 @@
 })();
 
 // ============================================
+// Launch countdown
+// ============================================
+(function countdown() {
+  const el = document.getElementById('countdown');
+  if (!el) return;
+
+  const daysEl = document.getElementById('cd-days');
+  const hoursEl = document.getElementById('cd-hours');
+  const minsEl = document.getElementById('cd-mins');
+  const secsEl = document.getElementById('cd-secs');
+
+  // Target: 45 days from first load, persisted so it doesn't reset on refresh
+  const STORAGE_KEY = 'mitivpn-launch-target';
+  let target = parseInt(localStorage.getItem(STORAGE_KEY), 10);
+  if (!target || isNaN(target)) {
+    target = Date.now() + 45 * 24 * 60 * 60 * 1000;
+    try { localStorage.setItem(STORAGE_KEY, String(target)); } catch (e) {}
+  }
+
+  function pad(n) { return String(n).padStart(2, '0'); }
+
+  function tick() {
+    const diff = Math.max(0, target - Date.now());
+    const days = Math.floor(diff / 86400000);
+    const hours = Math.floor((diff % 86400000) / 3600000);
+    const mins = Math.floor((diff % 3600000) / 60000);
+    const secs = Math.floor((diff % 60000) / 1000);
+
+    daysEl.textContent = pad(days);
+    hoursEl.textContent = pad(hours);
+    minsEl.textContent = pad(mins);
+    secsEl.textContent = pad(secs);
+  }
+
+  tick();
+  setInterval(tick, 1000);
+})();
+
+// ============================================
 // Notify form (client-side only — visual confirmation)
 // ============================================
 (function notifyForm() {
