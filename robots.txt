@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://mitivpn.com/sitemap.xml
